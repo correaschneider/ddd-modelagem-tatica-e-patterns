@@ -56,3 +56,41 @@ export function hello(name: string): string {
 ```shell
 npx tsc
 ```
+
+## Aula Prática 2 - Criando entidade anêmica
+Entidade anêmica, é uma classe que representa a tabela do banco de dados e não possuí regras de negócio. Entidades anêmicas não tem muito a contribuir com o desenvolvimento.
+
+1. Criar arquivo `src/entity/customer.ts`, com o conteúdo:
+```ts
+class Customer {
+    _id: string;
+    _name: string;
+    _address: string;
+
+    constructor(id: string, name: string, address: string) {
+        this._id = id;
+        this._name = name;
+        this._address = address;
+    }
+
+    get id(): string {
+        return this._id;
+    }
+
+    get name(): string {
+        return this._name;
+    }
+
+    get address(): string {
+        return this._address;
+    }
+
+    set name(name: string) {
+        this._name = name;
+    }
+
+    set address(address: string) {
+        this._address = address;
+    }
+}
+```
