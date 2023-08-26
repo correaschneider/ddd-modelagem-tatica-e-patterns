@@ -8,7 +8,9 @@ docker compose up -d app
 docker compose exec app bash
 ```
 
-## Aula Prática 1 - Configurando projeto typescript
+## Entidades
+
+### Aula Prática 1 - Configurando projeto typescript
 Criar e configurar um projeto básico para utilizar nas demais aulas.
 
 1. Instalar typescript e tslint
@@ -57,7 +59,7 @@ export function hello(name: string): string {
 npx tsc
 ```
 
-## Aula Prática 2 - Criando entidade anêmica
+### Aula Prática 2 - Criando entidade anêmica
 Entidade anêmica, é uma classe que representa a tabela do banco de dados e não possuí regras de negócio. Entidades anêmicas não tem muito a contribuir com o desenvolvimento.
 
 1. Criar arquivo `src/entity/customer.ts`, com o conteúdo:
@@ -95,7 +97,7 @@ class Customer {
 }
 ```
 
-## Aula Prática 3 - Regras de negócio
+### Aula Prática 3 - Regras de negócio
 Para transformar uma entidade anêmica em uma entidade precisamos remover os `getters` e os `setters` e adicionar as regras de negócios.
 
 1. Deletar os `getters` e os `setters` e adicionar as regras de negócios.
@@ -128,10 +130,10 @@ class Customer {
 
 > Visivelmente os métodos `set name` e `changeName`, são parecidos, mas com o método `changeName`, podemos adicionar mais regras de negócios como validações, além de também passar mais propriedade e expressividade sobre o que deve ser feito com o valor.
 
-## Aula Prática 4 - Consistência constante em primeiro lugar
+### Aula Prática 4 - Consistência constante em primeiro lugar
 Devemos garantir sempre que a entidade receba todos os paramêtros corretos para ser iniciado
 
-## Aula Prática 5 - Princípio da autovalidação
+### Aula Prática 5 - Princípio da autovalidação
 A própria entidade deve se autovalidar o tempo todo, garantindo a consistência das informações.
 
 1. Adicionar na entitade `src/entity/customer.ts` o método `validate()`
@@ -176,6 +178,6 @@ A própria entidade deve se autovalidar o tempo todo, garantindo a consistência
     }
 ```
 
-## Aula Prática 6 - Entidade VS ORM
+### Aula Prática 6 - Entidade VS ORM
 Quando trabalhamos com ORM, precisamos ter uma entidade anêmica, podemos chamar ela de model e criar separadamente da nossa entidade.
 A Entidade possui um complexidade de negócio, ela é o nosso _Domain_, onde estão nossas regras de negócio. Já a Entidade Anêmica, possui uma complexidade acidental, relacionada a nossa infra (banco de dados), necessitando de `getters` e `setters`.
