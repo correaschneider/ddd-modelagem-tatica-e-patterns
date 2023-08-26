@@ -127,3 +127,6 @@ class Customer {
 ```
 
 > Visivelmente os métodos `set name` e `changeName`, são parecidos, mas com o método `changeName`, podemos adicionar mais regras de negócios como validações, além de também passar mais propriedade e expressividade sobre o que deve ser feito com o valor.
+
+## Aula Prática 4 - Consistência constante em primeiro lugar
+Devemos garantir sempre que a entidade receba todos os paramêtros corretos para ser iniciado
