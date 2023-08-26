@@ -181,3 +181,8 @@ A própria entidade deve se autovalidar o tempo todo, garantindo a consistência
 ### Aula Prática 6 - Entidade VS ORM
 Quando trabalhamos com ORM, precisamos ter uma entidade anêmica, podemos chamar ela de model e criar separadamente da nossa entidade.
 A Entidade possui um complexidade de negócio, ela é o nosso _Domain_, onde estão nossas regras de negócio. Já a Entidade Anêmica, possui uma complexidade acidental, relacionada a nossa infra (banco de dados), necessitando de `getters` e `setters`.
+
+## Value Objects
+
+### Aula Teorica 1 - Introdução aos objetos de valor
+Precisamos tornar o nosso software em um software expressivo. Para isso não podemos simplesmente trabalhar com tipos primitivos, mas também criar nossos próprios tipos já pensando nas regras de negócio.
