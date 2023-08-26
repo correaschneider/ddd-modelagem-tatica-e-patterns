@@ -94,3 +94,36 @@ class Customer {
     }
 }
 ```
+
+## Aula Prática 3 - Regras de negócio
+Para transformar uma entidade anêmica em uma entidade precisamos remover os `getters` e os `setters` e adicionar as regras de negócios.
+
+1. Deletar os `getters` e os `setters` e adicionar as regras de negócios.
+```ts
+class Customer {
+    _id: string;
+    _name: string;
+    _address: string;
+    _active: boolean = true;
+
+    constructor(id: string, name: string, address: string) {
+        this._id = id;
+        this._name = name;
+        this._address = address;
+    }
+
+    changeName(name: string) {
+        this._name = name;
+    }
+
+    activate() {
+        this._active = true;
+    }
+
+    deactivate() {
+        this._active = false;
+    }
+}
+```
+
+> Visivelmente os métodos `set name` e `changeName`, são parecidos, mas com o método `changeName`, podemos adicionar mais regras de negócios como validações, além de também passar mais propriedade e expressividade sobre o que deve ser feito com o valor.
