@@ -130,3 +130,48 @@ class Customer {
 
 ## Aula Prática 4 - Consistência constante em primeiro lugar
 Devemos garantir sempre que a entidade receba todos os paramêtros corretos para ser iniciado
+
+## Aula Prática 5 - Princípio da autovalidação
+A própria entidade deve se autovalidar o tempo todo, garantindo a consistência das informações.
+
+1. Adicionar na entitade `src/entity/customer.ts` o método `validate()`
+```ts
+    validate() {
+        if (this._id.length === 0) {
+            throw new Error("Id is required");
+        }
+        if (this._name.length === 0) {
+            throw new Error("Name is required");
+        }
+    }
+```
+
+2. Chamar esse novo método no `construtor` e onde mais for necessário para garantir a integridade dos dados.
+```ts
+    constructor(id: string, name: string, address: string) {
+        this._id = id;
+        this._name = name;
+        this._address = address;
+
+        this.validate();
+    }
+
+    changeName(name: string) {
+        this._name = name;
+
+        this.validate();
+    }
+```
+
+3. Para atender um regra de negócio hipotética no nosso exemplo, só podemos ativar o customer quando temos o endereço preenchido. Alteramos o valor inicial da propriedade `_active` e adicionamos uma validação no método `activate`.
+```ts
+    _active: boolean = false;
+
+    activate() {
+        if (this._address.length === 0) {
+            throw new Error("Address is mandatory to activate a customer");
+        }
+
+        this._active = true;
+    }
+```
