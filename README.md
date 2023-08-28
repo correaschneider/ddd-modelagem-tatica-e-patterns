@@ -184,5 +184,36 @@ A Entidade possui um complexidade de negócio, ela é o nosso _Domain_, onde est
 
 ## Value Objects
 
-### Aula Teorica 1 - Introdução aos objetos de valor
+### Aula Teórica 1 - Introdução aos objetos de valor
 Precisamos tornar o nosso software em um software expressivo. Para isso não podemos simplesmente trabalhar com tipos primitivos, mas também criar nossos próprios tipos já pensando nas regras de negócio.
+
+### Aula Teórica 2 - Entendendo Value Objects
+"Quando você se preocupa apenas com os atributos de um elemento de um model, classifique isso como um Value Object" - Evans, Eric. Domain-Driven Design (p. 99) Person Education. Kindle Edition.
+"Trate o Value Object como imutável" - Evans, Eric. Domain-Driven Design (p. 99) Person Education. Kindle Edition.
+
+Crie seus próprios tipos, por exemplo, ao invés de usar `string` para CPF, crie o tipo `CPF`, onde nele vai ter dois atributos, o número do CPF e o dígito verificador.
+```ts
+class CPF {
+    _number: number;
+    _digit: number;
+
+    constructor(number: number, digit: number) {
+        this._number = number;
+        this._digit = digit;
+
+        this.validate();
+    }
+
+    validate() {
+        // Realizar cálculos para verificação do CPF
+    }
+
+    toString() {
+        // Retornar CPF sem máscara
+    }
+
+    toStringMasked() {
+        // Retornar CPF com máscara
+    }
+}
+```
