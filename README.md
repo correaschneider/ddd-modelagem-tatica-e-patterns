@@ -217,3 +217,95 @@ class CPF {
     }
 }
 ```
+
+### Aula Prática 1 - Value Objects na prática
+Definindo um exemplo de Value Object, usamos o Address como exemplo.
+
+1. Criamos o arquivo `src/entity/address.ts`, com o conteúdo:
+```ts
+export default class Address {
+    _street: string = '';
+    _number: number = 0;
+    _zip: string = '';
+    _city: string = '';
+
+    constructor(street: string, number: number, zip: string, city: string) {
+        this._street = street;
+        this._number = number;
+        this._zip = zip;
+        this._city = city;
+
+        this.validate();
+    }
+
+    validate() {
+        if (this._street.length === 0) {
+            throw new Error("Street is required");
+        }
+        if (this._number === 0) {
+            throw new Error("Number is required");
+        }
+        if (this._zip.length === 0) {
+            throw new Error("Zip is required");
+        }
+        if (this._city.length === 0) {
+            throw new Error("City is required");
+        }
+    }
+
+    toString() {
+        return `${this._street}, ${this._number}, ${this._zip}, ${this._city}`;
+    }
+}
+```
+
+2. Alteramos a entidade de Customer
+```ts
+import Address from './address';
+
+class Customer {
+    _id: string;
+    _name: string = '';
+    _address!: Address;
+    _active: boolean = false;
+
+    constructor(id: string, name: string) {
+        this._id = id;
+        this._name = name;
+
+        this.validate();
+    }
+
+    validate() {
+        if (this._id.length === 0) {
+            throw new Error("Id is required");
+        }
+        if (this._name.length === 0) {
+            throw new Error("Name is required");
+        }
+    }
+
+    changeName(name: string) {
+        this._name = name;
+
+        this.validate();
+    }
+
+    activate() {
+        if (this._address === undefined) {
+            throw new Error("Address is mandatory to activate a customer");
+        }
+
+        this._active = true;
+    }
+
+    deactivate() {
+        this._active = false;
+    }
+
+    set Address(address: Address) {
+        this._address = address;
+    }
+}
+
+```
