@@ -309,3 +309,8 @@ class Customer {
 }
 
 ```
+
+## Agregados
+
+### Aula Prática 1 - Agregados na Prática
+Criando order e order_item e agregando tudo na main
