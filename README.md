@@ -313,4 +313,7 @@ class Customer {
 ## Agregados
 
 ### Aula Prática 1 - Agregados na Prática
-Criando order e order_item e agregando tudo na main
+Criando `order` e `order_item` e agregando tudo na `main`
+
+## Testes
+Criando testes com Jest e melhorias nas classes `order` e `customer`
