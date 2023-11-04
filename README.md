@@ -316,4 +316,4 @@ class Customer {
 Criando `order` e `order_item` e agregando tudo na `main`
 
 ## Testes
-Criando testes com Jest e melhorias nas classes `order` e `customer`
+Criando testes com Jest e melhorias nas classes `order` e `customer`, criando classe de `product` e seus testes.
