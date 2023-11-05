@@ -322,3 +322,9 @@ Criando testes com Jest e melhorias nas classes `order` e `customer`, criando cl
 1. Customer => Address // Agregado de Customer tem relação via objeto de Address por ser relação direta
 1. Order => OrderItem // Agregado de Order tem relação via objeto de OrderItem por ser relação direta, já com Customer é pelo id do Customer pois são agregados distintos, e o OrderItem tem relação pelo id do Product, também por estar em agregados diferentes
 1. Product
+
+## Domain Services
+São métodos que não se encaixam nas entidades.
+
+### Aula Prática 1 - Definindo nosso ProductService
+Criando teste do `ProductService`
