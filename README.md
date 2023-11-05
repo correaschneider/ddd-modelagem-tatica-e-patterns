@@ -328,3 +328,6 @@ São métodos que não se encaixam nas entidades.
 
 ### Aula Prática 1 - Definindo nosso ProductService
 Criando teste do `ProductService`
+
+### Aula Prática 2 - Implementando ProductService
+Criando o `ProductService`
