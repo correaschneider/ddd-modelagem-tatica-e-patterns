@@ -1,6 +1,7 @@
 services:
   app:
-    image: node:lts
+    build: .
+    image: ddd-app:latest
     container_name: ddd-app
     working_dir: /app
     volumes:
